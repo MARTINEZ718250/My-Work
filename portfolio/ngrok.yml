@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────────────────
+#  ngrok.yml  —  OAM Portfolio Tunnel Configuration
+#
+#  SETUP STEPS (one-time):
+#  1. Create a free account at https://ngrok.com
+#  2. Copy your authtoken from https://dashboard.ngrok.com/auth
+#  3. Replace YOUR_NGROK_AUTHTOKEN below with your real token
+#
+#  START TUNNEL:
+#     ngrok start oam-portfolio --config ngrok.yml
+#  OR just double-click launch.bat and choose option [2]
+# ─────────────────────────────────────────────────────────────
+
+version: "3"
+
+# ── Replace this with your token from dashboard.ngrok.com ────
+authtoken: YOUR_NGROK_AUTHTOKEN
+
+# ── Tunnel definition ────────────────────────────────────────
+tunnels:
+  oam-portfolio:
+    proto: http
+    addr: 8080                        # must match PORT in server.py
+
+    # ── Basic Auth — one entry per allowed user ───────────────
+    # Format:  "username:password"
+    # These are the credentials your 3 users will enter in
+    # their browser when they visit the public URL.
+    basic_auth:
+      - "user1:access2030"            # Person 1
+      - "user2:access2030"            # Person 2
+      - "user3:access2030"            # Person 3
+
+    # ── Optional: friendly subdomain (paid ngrok plans only) ──
+    # subdomain: oam-portfolio
+
+    # ── Security headers ─────────────────────────────────────
+    inspect: true                     # enables ngrok traffic inspector

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OAM // OLUWATUYI AKINYEMI MARTINS — Python Developer</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Admin CSS loaded only if needed -->
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- CANVAS PARTICLE BACKGROUND -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- SCAN LINE OVERLAY -->
+  <div class="scanlines"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">[</span>OAM<span class="logo-bracket">]</span>
+        <span class="logo-version">v2.030</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home"     class="nav-link active" data-text="HOME">HOME</a></li>
+        <li><a href="#about"    class="nav-link" data-text="ABOUT">ABOUT</a></li>
+        <li><a href="#skills"   class="nav-link" data-text="SKILLS">SKILLS</a></li>
+        <li><a href="#projects" class="nav-link" data-text="PROJECTS">PROJECTS</a></li>
+        <li><a href="#contact"  class="nav-link" data-text="CONTACT">CONTACT</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span class="status-text">ONLINE</span>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-progress"></div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <!-- HUD corners -->
+    <div class="hud-corner hud-tl"></div>
+    <div class="hud-corner hud-tr"></div>
+    <div class="hud-corner hud-bl"></div>
+    <div class="hud-corner hud-br"></div>
+
+    <div class="hero-grid-overlay"></div>
+
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="badge-icon">◈</span>
+        <span>PYTHON DEVELOPER &amp; LEARNER</span>
+        <span class="badge-icon">◈</span>
+      </div>
+
+      <div class="glitch-wrapper">
+        <h1 class="hero-name glitch" data-text="OLUWATUYI">OLUWATUYI</h1>
+        <h1 class="hero-name hero-name-mid glitch" data-text="AKINYEMI">AKINYEMI</h1>
+        <h1 class="hero-name glitch hero-name-accent" data-text="MARTINS">MARTINS</h1>
+      </div>
+
+      <div class="hero-typewriter">
+        <span class="tw-prompt">&gt;&gt;</span>
+        <span id="typed-text" class="tw-text"></span>
+        <span class="tw-cursor">█</span>
+      </div>
+
+      <p class="hero-desc">
+        Python developer still growing, still learning — building real things
+        with code every day. Passionate about backend systems, clean logic,
+        and turning ideas into working software.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-cyber">
+          <span class="btn-glitch-text">EXPLORE SYSTEMS</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-outline-cyber">
+          <span>INIT CONTACT</span>
+        </a>
+      </div>
+
+      <div class="hero-metrics">
+        <div class="metric">
+          <span class="metric-val" data-target="5">0</span>
+          <span class="metric-plus">+</span>
+          <span class="metric-label">PROJECTS</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <span class="metric-val" data-target="3">0</span>
+          <span class="metric-plus">+</span>
+          <span class="metric-label">YRS EXP</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <span class="metric-val" data-target="10">0</span>
+          <span class="metric-plus">+</span>
+          <span class="metric-label">TECH STACK</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <!-- Holographic Avatar -->
+      <div class="holo-avatar">
+        <div class="holo-ring holo-ring-1"></div>
+        <div class="holo-ring holo-ring-2"></div>
+        <div class="holo-ring holo-ring-3"></div>
+        <div class="holo-core">
+          <div class="holo-inner">
+            <i class="fas fa-user-astronaut"></i>
+          </div>
+          <div class="holo-scan"></div>
+        </div>
+        <div class="holo-orbit">
+          <div class="orbit-item item-1"><i class="fab fa-python"></i></div>
+          <div class="orbit-item item-2"><i class="fab fa-react"></i></div>
+          <div class="orbit-item item-3"><i class="fas fa-database"></i></div>
+          <div class="orbit-item item-4"><i class="fab fa-node-js"></i></div>
+          <div class="orbit-item item-5"><i class="fab fa-docker"></i></div>
+          <div class="orbit-item item-6"><i class="fab fa-js-square"></i></div>
+        </div>
+        <div class="holo-data">
+          <div class="holo-stat"><span>CPU</span><div class="holo-bar"><div class="holo-fill" style="width:88%"></div></div><span>88%</span></div>
+          <div class="holo-stat"><span>RAM</span><div class="holo-bar"><div class="holo-fill" style="width:72%"></div></div><span>72%</span></div>
+          <div class="holo-stat"><span>API</span><div class="holo-bar"><div class="holo-fill holo-fill-green" style="width:95%"></div></div><span>95%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// SYSTEM PROFILE</div>
+        <h2 class="section-title">ABOUT<span class="title-accent">_ME</span></h2>
+        <div class="section-line-cyber"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="t-dot red"></span>
+              <span class="t-dot yellow"></span>
+              <span class="t-dot green"></span>
+            </div>
+            <span class="terminal-title">profile.exe</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="t-cmd">$ cat developer.json</span></p>
+            <p class="t-out">{</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-val">"Oluwatuyi Akinyemi Martins"</span>,</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"role"</span>: <span class="t-val">"Python Developer"</span>,</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"location"</span>: <span class="t-val">"Nigeria 🇳🇬"</span>,</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"languages"</span>: <span class="t-val">["Python", "HTML", "CSS", "JavaScript"]</span>,</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"learning"</span>: <span class="t-green">true</span>,</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"phone"</span>: <span class="t-val">"08134876480"</span>,</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"email"</span>: <span class="t-val">"akinmartins994@gmail.com"</span>,</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"status"</span>: <span class="t-green">"available_for_work"</span>,</p>
+            <p class="t-out">&nbsp;&nbsp;<span class="t-key">"passion"</span>: <span class="t-val">"Building &amp; learning every day"</span></p>
+            <p class="t-out">}</p>
+            <p class="t-cmd">$ _<span class="t-cursor">█</span></p>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="about-text">
+            I'm <span class="neon-text">Oluwatuyi Akinyemi Martins</span> — a Python developer
+            who's still on the journey, still learning, and proud of it. I work mainly with
+            Python on the backend and I'm building my skills in HTML, CSS and JavaScript
+            on the frontend every day.
+          </p>
+          <p class="about-text">
+            My biggest project so far is the <span class="neon-text">Hostel Allocation System</span> —
+            a real working platform built with Python and Django. I believe in learning
+            by building real things, making mistakes, and improving with every line of code.
+          </p>
+
+          <div class="about-traits">
+            <div class="trait-item">
+              <i class="fas fa-microchip"></i>
+              <div>
+                <h4>Python Development</h4>
+                <p>My strongest skill — backend logic, scripting and web apps</p>
+              </div>
+            </div>
+            <div class="trait-item">
+              <i class="fas fa-code"></i>
+              <div>
+                <h4>HTML &amp; CSS</h4>
+                <p>Building and styling web pages, still developing my eye for design</p>
+              </div>
+            </div>
+            <div class="trait-item">
+              <i class="fas fa-seedling"></i>
+              <div>
+                <h4>Always Learning</h4>
+                <p>JavaScript is next on my list — growing every single day</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="btn btn-cyber">
+            <i class="fas fa-download"></i>
+            <span>DOWNLOAD_CV.pdf</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// CAPABILITY MATRIX</div>
+        <h2 class="section-title">TECH<span class="title-accent">_STACK</span></h2>
+        <div class="section-line-cyber"></div>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-panel">
+          <div class="panel-header">
+            <i class="fas fa-desktop"></i>
+            <span>FRONTEND</span>
+            <div class="panel-corner"></div>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-html5"></i> HTML5</span>
+              <div class="skill-track"><div class="skill-fill" data-w="65"></div></div>
+              <span class="skill-pct">65%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <div class="skill-track"><div class="skill-fill" data-w="55"></div></div>
+              <span class="skill-pct">55%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-js"></i> JavaScript</span>
+              <div class="skill-track"><div class="skill-fill" data-w="35"></div></div>
+              <span class="skill-pct">35%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+              <div class="skill-track"><div class="skill-fill" data-w="50"></div></div>
+              <span class="skill-pct">50%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-panel">
+          <div class="panel-header">
+            <i class="fas fa-server"></i>
+            <span>BACKEND (PRIMARY)</span>
+            <div class="panel-corner"></div>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-python"></i> Python</span>
+              <div class="skill-track"><div class="skill-fill" data-w="75"></div></div>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-fire"></i> Django</span>
+              <div class="skill-track"><div class="skill-fill" data-w="65"></div></div>
+              <span class="skill-pct">65%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-flask"></i> Flask</span>
+              <div class="skill-track"><div class="skill-fill" data-w="55"></div></div>
+              <span class="skill-pct">55%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-terminal"></i> CLI / Scripting</span>
+              <div class="skill-track"><div class="skill-fill" data-w="60"></div></div>
+              <span class="skill-pct">60%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-panel">
+          <div class="panel-header">
+            <i class="fas fa-database"></i>
+            <span>DATABASE</span>
+            <div class="panel-corner"></div>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-database"></i> SQLite</span>
+              <div class="skill-track"><div class="skill-fill" data-w="70"></div></div>
+              <span class="skill-pct">70%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-table"></i> MySQL</span>
+              <div class="skill-track"><div class="skill-fill" data-w="55"></div></div>
+              <span class="skill-pct">55%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-database"></i> PostgreSQL</span>
+              <div class="skill-track"><div class="skill-fill" data-w="50"></div></div>
+              <span class="skill-pct">50%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-code"></i> SQL Basics</span>
+              <div class="skill-track"><div class="skill-fill" data-w="65"></div></div>
+              <span class="skill-pct">65%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-panel">
+          <div class="panel-header">
+            <i class="fas fa-cubes"></i>
+            <span>TOOLS</span>
+            <div class="panel-corner"></div>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-row">
+              <span class="skill-name"><i class="fab fa-git-alt"></i> Git / GitHub</span>
+              <div class="skill-track"><div class="skill-fill" data-w="60"></div></div>
+              <span class="skill-pct">60%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-terminal"></i> VS Code</span>
+              <div class="skill-track"><div class="skill-fill" data-w="70"></div></div>
+              <span class="skill-pct">70%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-bug"></i> Debugging</span>
+              <div class="skill-track"><div class="skill-fill" data-w="65"></div></div>
+              <span class="skill-pct">65%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name"><i class="fas fa-book-open"></i> Self-Learning</span>
+              <div class="skill-track"><div class="skill-fill" data-w="95"></div></div>
+              <span class="skill-pct">95%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// DEPLOYED SYSTEMS</div>
+        <h2 class="section-title">PROJECT<span class="title-accent">_LOG</span></h2>
+        <div class="section-line-cyber"></div>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">[ ALL ]</button>
+        <button class="filter-btn" data-filter="web">[ WEB ]</button>
+        <button class="filter-btn" data-filter="system">[ SYSTEM ]</button>
+        <button class="filter-btn" data-filter="api">[ API ]</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- HOSTEL ALLOCATION -->
+        <div class="project-card featured" data-category="system web">
+          <div class="card-badge">FEATURED</div>
+          <div class="card-id">SYS-001</div>
+          <div class="project-header">
+            <div class="project-icon-wrap p-icon-1">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Django</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Bootstrap</span>
+              </div>
+              <div class="project-status"><span class="status-online"></span> LIVE</div>
+            </div>
+          </div>
+          <h3 class="project-title">HOSTEL ALLOCATION<br><span>SYSTEM</span></h3>
+          <p class="project-desc">
+            Full-stack platform automating student room assignments for institutions.
+            Intelligent allocation engine, admin dashboards, payment integration, and
+            real-time email notification pipelines.
+          </p>
+          <ul class="project-features">
+            <li><span class="feat-bullet">▸</span> Smart room allocation algorithm</li>
+            <li><span class="feat-bullet">▸</span> Dual dashboards (Admin + Student)</li>
+            <li><span class="feat-bullet">▸</span> Payment & receipt generation</li>
+            <li><span class="feat-bullet">▸</span> Automated email notifications</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fas fa-external-link-alt"></i> LIVE DEMO</a>
+            <a href="#" class="card-link"><i class="fab fa-github"></i> SOURCE</a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- SHOPEASE -->
+        <div class="project-card" data-category="web">
+          <div class="card-id">WEB-002</div>
+          <div class="project-header">
+            <div class="project-icon-wrap p-icon-2">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Stripe</span>
+              </div>
+              <div class="project-status"><span class="status-online"></span> LIVE</div>
+            </div>
+          </div>
+          <h3 class="project-title">SHOPEASE<br><span>E-COMMERCE</span></h3>
+          <p class="project-desc">
+            Modern MERN-stack e-commerce with real-time inventory, Stripe checkout,
+            and a full seller dashboard. Built for scale.
+          </p>
+          <ul class="project-features">
+            <li><span class="feat-bullet">▸</span> Product catalog with filters</li>
+            <li><span class="feat-bullet">▸</span> Secure Stripe payments</li>
+            <li><span class="feat-bullet">▸</span> Order tracking & history</li>
+            <li><span class="feat-bullet">▸</span> Seller management portal</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fas fa-external-link-alt"></i> LIVE DEMO</a>
+            <a href="#" class="card-link"><i class="fab fa-github"></i> SOURCE</a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- STUDENT API -->
+        <div class="project-card" data-category="api">
+          <div class="card-id">API-003</div>
+          <div class="project-header">
+            <div class="project-icon-wrap p-icon-3">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">JWT</span>
+                <span class="tag">Redis</span>
+              </div>
+              <div class="project-status"><span class="status-online"></span> LIVE</div>
+            </div>
+          </div>
+          <h3 class="project-title">STUDENT MGMT<br><span>REST API</span></h3>
+          <p class="project-desc">
+            High-performance RESTful API for academic records, course registration
+            and grade management with JWT auth, RBAC, rate limiting and Swagger docs.
+          </p>
+          <ul class="project-features">
+            <li><span class="feat-bullet">▸</span> JWT auth & role-based access</li>
+            <li><span class="feat-bullet">▸</span> Course & grade management</li>
+            <li><span class="feat-bullet">▸</span> Swagger / OpenAPI docs</li>
+            <li><span class="feat-bullet">▸</span> Redis caching layer</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fas fa-external-link-alt"></i> LIVE DEMO</a>
+            <a href="#" class="card-link"><i class="fab fa-github"></i> SOURCE</a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- TASKFLOW -->
+        <div class="project-card" data-category="web">
+          <div class="card-id">WEB-004</div>
+          <div class="project-header">
+            <div class="project-icon-wrap p-icon-4">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Tailwind</span>
+              </div>
+              <div class="project-status"><span class="status-online"></span> LIVE</div>
+            </div>
+          </div>
+          <h3 class="project-title">TASKFLOW<br><span>PROJECT MANAGER</span></h3>
+          <p class="project-desc">
+            Real-time collaborative Kanban tool with drag-and-drop boards, team management,
+            deadline tracking and live progress analytics via Firebase.
+          </p>
+          <ul class="project-features">
+            <li><span class="feat-bullet">▸</span> Drag-and-drop Kanban boards</li>
+            <li><span class="feat-bullet">▸</span> Real-time collaboration</li>
+            <li><span class="feat-bullet">▸</span> Deadline reminders</li>
+            <li><span class="feat-bullet">▸</span> Progress analytics charts</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fas fa-external-link-alt"></i> LIVE DEMO</a>
+            <a href="#" class="card-link"><i class="fab fa-github"></i> SOURCE</a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- WEATHERNOW -->
+        <div class="project-card" data-category="web api">
+          <div class="card-id">API-005</div>
+          <div class="project-header">
+            <div class="project-icon-wrap p-icon-5">
+              <i class="fas fa-cloud-sun-rain"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">OpenWeather</span>
+                <span class="tag">CSS3</span>
+              </div>
+              <div class="project-status"><span class="status-online"></span> LIVE</div>
+            </div>
+          </div>
+          <h3 class="project-title">WEATHERNOW<br><span>LIVE WEATHER</span></h3>
+          <p class="project-desc">
+            Sleek weather app with real-time data, 7-day forecasts, hourly breakdowns
+            and geolocation. Dynamic backgrounds shift with live conditions.
+          </p>
+          <ul class="project-features">
+            <li><span class="feat-bullet">▸</span> Real-time weather data</li>
+            <li><span class="feat-bullet">▸</span> 7-day forecast view</li>
+            <li><span class="feat-bullet">▸</span> Geolocation support</li>
+            <li><span class="feat-bullet">▸</span> Dynamic weather themes</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fas fa-external-link-alt"></i> LIVE DEMO</a>
+            <a href="#" class="card-link"><i class="fab fa-github"></i> SOURCE</a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- LIBRARYPRO -->
+        <div class="project-card" data-category="system">
+          <div class="card-id">SYS-006</div>
+          <div class="project-header">
+            <div class="project-icon-wrap p-icon-6">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="tag">Flask</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Bootstrap</span>
+              </div>
+              <div class="project-status"><span class="status-online"></span> LIVE</div>
+            </div>
+          </div>
+          <h3 class="project-title">LIBRARYPRO<br><span>MGMT SYSTEM</span></h3>
+          <p class="project-desc">
+            Comprehensive library platform for cataloging, member management,
+            borrow/return tracking, fine calculation and automated overdue alerts.
+          </p>
+          <ul class="project-features">
+            <li><span class="feat-bullet">▸</span> Book catalog & smart search</li>
+            <li><span class="feat-bullet">▸</span> Borrow / return tracking</li>
+            <li><span class="feat-bullet">▸</span> Automated fine calculator</li>
+            <li><span class="feat-bullet">▸</span> Reports & analytics export</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fas fa-external-link-alt"></i> LIVE DEMO</a>
+            <a href="#" class="card-link"><i class="fab fa-github"></i> SOURCE</a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// ESTABLISH CONNECTION</div>
+        <h2 class="section-title">INIT<span class="title-accent">_CONTACT</span></h2>
+        <div class="section-line-cyber"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 class="contact-headline">TRANSMIT A MESSAGE</h3>
+          <p class="contact-sub">
+            Available for freelance missions, full-time roles, and collaborative projects.
+            Response time: <span class="neon-text">&lt; 24 hours</span>.
+          </p>
+
+          <div class="contact-channels">
+            <div class="channel-item">
+              <div class="channel-icon"><i class="fas fa-envelope"></i></div>
+              <div class="channel-text">
+                <span class="channel-label">EMAIL CHANNEL</span>
+                <span class="channel-val">akinmartins994@gmail.com</span>
+              </div>
+            </div>
+            <div class="channel-item">
+              <div class="channel-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="channel-text">
+                <span class="channel-label">COMM LINK</span>
+                <span class="channel-val">+234 813 487 6480</span>
+              </div>
+            </div>
+            <div class="channel-item">
+              <div class="channel-icon"><i class="fas fa-map-pin"></i></div>
+              <div class="channel-text">
+                <span class="channel-label">LOCATION NODE</span>
+                <span class="channel-val">Nigeria, West Africa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-grid">
+            <a href="#" class="social-cyber" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="#" class="social-cyber" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="#" class="social-cyber" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+              <span>Twitter</span>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form cyber-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">IDENTIFIER</label>
+              <div class="input-wrap">
+                <i class="fas fa-user"></i>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">EMAIL NODE</label>
+              <div class="input-wrap">
+                <i class="fas fa-at"></i>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">SUBJECT HEADER</label>
+            <div class="input-wrap">
+              <i class="fas fa-tag"></i>
+              <input type="text" id="subject" name="subject" placeholder="Project inquiry, collaboration..." required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">MESSAGE PAYLOAD</label>
+            <div class="input-wrap textarea-wrap">
+              <textarea id="message" name="message" rows="5" placeholder="Describe your project or idea..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-cyber btn-full">
+            <i class="fas fa-paper-plane"></i>
+            <span>TRANSMIT MESSAGE</span>
+          </button>
+          <p class="form-status" id="form-status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-bracket">[</span>OAM<span class="logo-bracket">]</span>
+        </div>
+        <div class="footer-links">
+          <a href="#home">HOME</a>
+          <a href="#about">ABOUT</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#projects">PROJECTS</a>
+          <a href="#contact">CONTACT</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>DESIGNED &amp; ENGINEERED BY <span class="neon-text">OLUWATUYI AKINYEMI MARTINS</span></p>
+        <p class="footer-copy">&copy; 2026 // ALL SYSTEMS OPERATIONAL</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

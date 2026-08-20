@@ -1,0 +1,33 @@
+╔══════════════════════════════════════════════════════════════╗
+║         OAM PORTFOLIO  //  AUTHORISED ACCESS CODES           ║
+║                  Share ONLY with named recipients            ║
+╚══════════════════════════════════════════════════════════════╝
+
+Each person below has their own unique credentials.
+Send ONLY their own row — do not share others' passwords.
+
+┌─────────────┬──────────────┬────────────────┐
+│  RECIPIENT  │  USERNAME    │  PASSWORD      │
+├─────────────┼──────────────┼────────────────┤
+│  Person 1   │  user1       │  access2030    │
+│  Person 2   │  user2       │  access2030    │
+│  Person 3   │  user3       │  access2030    │
+└─────────────┴──────────────┴────────────────┘
+
+HOW TO ACCESS:
+──────────────
+1. Open the URL you were given in any browser
+2. When prompted, enter your Username and Password above
+3. You will see the portfolio immediately after login
+
+NOTE:
+─────
+• The URL changes every time the server restarts (free ngrok plan).
+  You will receive a new URL each session.
+• Do NOT share this URL or your credentials with anyone else.
+• Access is logged — unauthorised attempts are recorded.
+
+═══════════════════════════════════════════════════════════════
+  To change passwords: edit USERS in server.py
+                       and basic_auth in ngrok.yml
+═══════════════════════════════════════════════════════════════
